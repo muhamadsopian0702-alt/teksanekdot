@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahan Ajar Interaktif: Kaidah Kebahasaan Teks Anekdot (Kelas X SMA)</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-indigo-700 flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-book-open-reader text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-slate-900 text-base sm:text-lg block leading-tight">Bahasa Indonesia X</span>
+                        <span class="text-xs text-slate-500 font-medium">Kurikulum Merdeka • Fase E</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs (Desktop) -->
+                <nav class="hidden md:flex space-x-2 bg-slate-100 p-1 rounded-xl">
+                    <button onclick="switchTab('materi')" id="nav-materi" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-white text-brand-700 shadow-sm">
+                        <i class="fa-solid fa-lightbulb mr-1.5"></i>1. Konsep & Kaidah
+                    </button>
+                    <button onclick="switchTab('bedah')" id="nav-bedah" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-slate-900">
+                        <i class="fa-solid fa-magnifying-glass-chart mr-1.5"></i>2. Bedah Teks Interaktif
+                    </button>
+                    <button onclick="switchTab('kuis')" id="nav-kuis" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 hover:text-slate-900">
+                        <i class="fa-solid fa-pen-to-square mr-1.5"></i>3. Uji Analisis
+                    </button>
+                </nav>
+
+                <!-- Teacher/Info Modal Trigger -->
+                <button onclick="toggleModal('infoModal')" class="p-2.5 text-slate-600 hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-colors" title="Informasi Modul & Tujuan Pembelajaran">
+                    <i class="fa-solid fa-circle-info text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Bar -->
+        <div class="md:hidden border-t border-slate-200 bg-white px-2 py-2 flex justify-around">
+            <button onclick="switchTab('materi')" id="mob-nav-materi" class="mob-nav-btn flex-1 py-2 px-1 text-center rounded-lg text-xs font-semibold bg-brand-50 text-brand-700">
+                <i class="fa-solid fa-lightbulb block text-base mb-1"></i>Konsep
+            </button>
+            <button onclick="switchTab('bedah')" id="mob-nav-bedah" class="mob-nav-btn flex-1 py-2 px-1 text-center rounded-lg text-xs font-semibold text-slate-600">
+                <i class="fa-solid fa-magnifying-glass-chart block text-base mb-1"></i>Bedah Teks
+            </button>
+            <button onclick="switchTab('kuis')" id="mob-nav-kuis" class="mob-nav-btn flex-1 py-2 px-1 text-center rounded-lg text-xs font-semibold text-slate-600">
+                <i class="fa-solid fa-pen-to-square block text-base mb-1"></i>Uji Analisis
+            </button>
+        </div>
+    </header>
+
+    <!-- ==================== HERO BANNER / TUJUAN PEMBELAJARAN ==================== -->
+    <section class="bg-gradient-to-r from-brand-900 via-brand-700 to-indigo-800 text-white py-8 sm:py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-3 max-w-2xl">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold tracking-wide uppercase text-amber-300 border border-white/20">
+                        <i class="fa-solid fa-bullseye mr-2"></i>Tujuan Pembelajaran
+                    </div>
+                    <h1 class="font-heading text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+                        Menganalisis Kaidah Kebahasaan Teks Anekdot
+                    </h1>
+                    <p class="text-brand-100 text-sm sm:text-base leading-relaxed">
+                        Peserta didik mampu mengidentifikasi, menelaah, dan mengevaluasi ciri-ciri kebahasaan khas dalam teks anekdot sebagai sarana penyampaian kritik sosial secara santun dan humoris.
+                    </p>
+                </div>
+                
+                <!-- Quick Progress Card -->
+                <div class="w-full md:w-72 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-lg">
+                    <div class="flex items-center justify-between text-xs font-semibold text-brand-100 mb-2">
+                        <span>Progres Belajar Kamu</span>
+                        <span id="progress-text">33%</span>
+                    </div>
+                    <div class="w-full bg-brand-950/50 rounded-full h-2.5 mb-3">
+                        <div id="progress-bar" class="bg-amber-400 h-2.5 rounded-full transition-all duration-500" style="width: 33%"></div>
+                    </div>
+                    <p class="text-xs text-brand-100 flex items-center">
+                        <i class="fa-solid fa-sparkles text-amber-300 mr-2"></i>
+                        <span id="progress-hint">Pelajari 6 kaidah kebahasaan terlebih dahulu.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- ============================================================== -->
+        <!-- TAB 1: KONSEP & KAIDAH KEBAHASAAN                              -->
+        <!-- ============================================================== -->
+        <section id="section-materi" class="tab-section space-y-8">
+            
+            <!-- Pengantar Singkat -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 text-3xl">
+                    <i class="fa-solid fa-masks-theater"></i>
+                </div>
+                <div class="space-y-2">
+                    <h2 class="font-heading text-xl font-bold text-slate-900">Mengapa Kaidah Kebahasaan Anekdot Unik?</h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Teks anekdot bukan sekadar cerita lucu biasa. Di balik kelucuannya, terdapat <strong>kritik sosial</strong> atau sindiran terhadap fenomena publik. Agar sindiran terasa halus namun mengena, penulis anekdot menggunakan enam kaidah kebahasaan spesifik. Klik kartu di bawah ini untuk membedah setiap kaidahnya!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Grid 6 Kaidah Kebahasaan Interaktif -->
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-heading text-lg sm:text-xl font-bold text-slate-900">
+                        <i class="fa-solid fa-layer-group text-brand-600 mr-2"></i>6 Kaidah Kebahasaan Teks Anekdot
+                    </h3>
+                    <span class="text-xs font-medium text-slate-500 bg-slate-200/70 px-3 py-1 rounded-full">Klik kartu untuk melihat contoh</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="kaidah-grid">
+                    <!-- Kaidah cards will be injected dynamically via JS for clean maintenance -->
+                </div>
+            </div>
+
+            <!-- Call to Action ke Tab 2 -->
+            <div class="bg-brand-50 border border-brand-200 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-heading font-bold text-brand-900 text-lg">Sudah paham keenam kaidah di atas?</h4>
+                    <p class="text-brand-700 text-sm">Mari praktikkan langsung dengan membedah teks anekdot secara interaktif!</p>
+                </div>
+                <button onclick="switchTab('bedah')" class="w-full sm:w-auto px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                    <span>Lanjut ke Bedah Teks</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 2: BEDAH TEKS ANEKDOT INTERAKTIF                           -->
+        <!-- ============================================================== -->
+        <section id="section-bedah" class="tab-section hidden space-y-6">
+            
+            <!-- Instruksi & Pemilih Teks -->
+            <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div>
+                    <h2 class="font-heading text-xl font-bold text-slate-900">Laboratorium Bedah Teks Anekdot</h2>
+                    <p class="text-sm text-slate-600 mt-1">Klik pada <strong>frasa atau kalimat yang diberi warna</strong> di dalam teks untuk melihat hasil analisis kebahasaannya.</p>
+                </div>
+                
+                <!-- Pilihan Teks Studi Kasus -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="loadAnekdot(0)" id="btn-teks-0" class="teks-selector px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-600 text-white shadow-sm transition-all">
+                        Teks 1: Baju Tahanan KPK
+                    </button>
+                    <button onclick="loadAnekdot(1)" id="btn-teks-1" class="teks-selector px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
+                        Teks 2: Dosen yang Juga Pejabat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Highlight Legend -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200">
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Filter Sorotan Kaidah Kebahasaan:</div>
+                <div class="flex flex-wrap gap-2" id="legend-filters">
+                    <!-- Filter badges rendered by JS -->
+                </div>
+            </div>
+
+            <!-- Split View: Teks Anekdot (Kiri) & Panel Analisis (Kanan) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Kolom Kiri: Naskah Teks Anekdot (7 kolom) -->
+                <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                    <div class="border-b border-slate-100 pb-4 mb-5 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Naskah Studi Kasus</span>
+                            <h3 id="anekdot-title" class="font-heading text-2xl font-extrabold text-slate-900 mt-1">Judul Teks</h3>
+                        </div>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-xs font-medium">
+                            <i class="fa-solid fa-hand-pointer mr-1 text-brand-500"></i>Klik sorotan teks
+                        </span>
+                    </div>
+                    
+                    <!-- Isi Teks dengan Span Interaktif -->
+                    <div id="anekdot-body" class="space-y-4 text-slate-700 text-base sm:text-lg leading-relaxed">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Panel Hasil Analisis (5 kolom) -->
+                <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
+                    <div id="analysis-panel" class="bg-white rounded-2xl p-6 shadow-md border-2 border-brand-100 transition-all">
+                        <!-- Default State before clicking any highlight -->
+                        <div id="analysis-placeholder" class="text-center py-10 px-4 space-y-3">
+                            <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto text-2xl animate-bounce">
+                                <i class="fa-solid fa-arrow-pointer"></i>
+                            </div>
+                            <h4 class="font-heading font-bold text-slate-800 text-lg">Pilih Kutipan Teks</h4>
+                            <p class="text-sm text-slate-500">
+                                Silakan klik salah satu bagian teks yang berwarna di sebelah kiri untuk memunculkan bedah kaidah kebahasaan secara mendetail.
+                            </p>
+                        </div>
+
+                        <!-- Active Analysis Content -->
+                        <div id="analysis-content" class="hidden space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span id="analysis-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                    Nama Kaidah
+                                </span>
+                                <span class="text-xs text-slate-400 font-medium">Hasil Analisis</span>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <span class="text-xs font-semibold text-slate-400 block mb-1">Kutipan dalam Teks:</span>
+                                <p id="analysis-quote" class="font-semibold text-slate-900 italic text-base">
+                                    "..."
+                                </p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <h4 class="font-heading font-bold text-slate-900 text-sm uppercase tracking-wider text-brand-700">
+                                    <i class="fa-solid fa-microscope mr-1.5"></i>Penjelasan Analitis:
+                                </h4>
+                                <p id="analysis-explanation" class="text-slate-700 text-sm leading-relaxed">
+                                    Penjelasan lengkap mengenai fungsi kaidah kebahasaan ini dalam konteks cerita.
+                                </p>
+                            </div>
+
+                            <div class="pt-3 border-t border-slate-100">
+                                <span class="text-xs font-semibold text-slate-500 block mb-1">Fungsi dalam Anekdot:</span>
+                                <p id="analysis-function" class="text-xs text-slate-600 bg-amber-50/80 border border-amber-200/80 p-3 rounded-lg">
+                                    Fungsi pragmatis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Checklist Pemahaman -->
+                    <div class="bg-slate-900 text-white rounded-2xl p-5 shadow-sm">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Eksplorasi Teks Ini</span>
+                            <span id="explored-count" class="text-xs font-bold bg-white/10 px-2.5 py-0.5 rounded-full">0 / 0 diklik</span>
+                        </div>
+                        <p class="text-xs text-slate-300">Coba klik semua bagian yang disorot pada teks ini untuk memastikan kamu memahami seluruh struktur kebahasaannya.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action ke Tab 3 -->
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-heading font-bold text-emerald-900 text-lg">Siap Menguji Kemampuan Analisismu?</h4>
+                    <p class="text-emerald-700 text-sm">Kerjakan 5 soal analisis kaidah kebahasaan teks anekdot berbasis HOTS.</p>
+                </div>
+                <button onclick="switchTab('kuis')" class="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                    <span>Mulai Uji Analisis</span>
+                    <i class="fa-solid fa-check-double"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 3: UJI ANALISIS (KUIS INTERAKTIF)                          -->
+        <!-- ============================================================== -->
+        <section id="section-kuis" class="tab-section hidden max-w-3xl mx-auto space-y-6">
+            
+            <!-- Quiz Header -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex items-center justify-between">
+                <div>
+                    <h2 class="font-heading text-xl font-bold text-slate-900">Uji Analisis Kaidah Kebahasaan</h2>
+                    <p class="text-sm text-slate-600">Pilihlah jawaban yang paling tepat berdasarkan analisis kaidah kebahasaan.</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-semibold text-slate-400 block">Skor Saat Ini</span>
+                    <span id="quiz-score-badge" class="font-heading text-2xl font-extrabold text-brand-600">0</span>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+                <!-- Progress & Question Number -->
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <span id="question-number" class="px-3 py-1 bg-brand-50 text-brand-700 font-bold text-xs rounded-lg">
+                        Soal 1 dari 5
+                    </span>
+                    <span id="question-topic" class="text-xs font-medium text-slate-500">
+                        Topik: Kalimat Retoris
+                    </span>
+                </div>
+
+                <!-- Kutipan Teks Soal -->
+                <div id="question-stimulus" class="bg-slate-50 border-l-4 border-brand-500 p-4 rounded-r-xl text-slate-700 text-sm sm:text-base italic leading-relaxed">
+                    Stimulus kutipan teks anekdot...
+                </div>
+
+                <!-- Pertanyaan -->
+                <h3 id="question-text" class="font-heading font-bold text-slate-900 text-lg">
+                    Pertanyaan soal...
+                </h3>
+
+                <!-- Pilihan Jawaban -->
+                <div id="options-container" class="space-y-3">
+                    <!-- Options injected via JS -->
+                </div>
+
+                <!-- Umpan Balik / Pembahasan -->
+                <div id="feedback-box" class="hidden rounded-xl p-4 border text-sm space-y-1">
+                    <div id="feedback-title" class="font-bold flex items-center gap-2"></div>
+                    <p id="feedback-desc" class="text-slate-700 leading-relaxed"></p>
+                </div>
+
+                <!-- Tombol Navigasi Soal -->
+                <div class="pt-4 border-t border-slate-100 flex justify-end">
+                    <button id="next-question-btn" onclick="nextQuestion()" class="hidden px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-sm transition-all flex items-center gap-2">
+                        <span>Soal Berikutnya</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hasil Akhir Kuis (Hidden initially) -->
+            <div id="quiz-result" class="hidden bg-white rounded-2xl p-8 shadow-md border border-slate-200 text-center space-y-6">
+                <div id="result-icon" class="w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl"></div>
+                <div class="space-y-2">
+                    <h3 class="font-heading text-2xl font-extrabold text-slate-900">Evaluasi Selesai!</h3>
+                    <p id="result-message" class="text-slate-600 max-w-md mx-auto">Pesan hasil belajar.</p>
+                </div>
+                
+                <div class="bg-slate-50 rounded-2xl p-6 max-w-xs mx-auto border border-slate-200">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Nilai Akhir Kamu</span>
+                    <span id="final-score" class="font-heading text-5xl font-extrabold text-brand-600 my-2 block">100</span>
+                    <span id="final-correct" class="text-xs font-medium text-slate-500">5 dari 5 soal benar</span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-3 pt-2">
+                    <button onclick="resetQuiz()" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-sm transition-all">
+                        <i class="fa-solid fa-rotate-right mr-2"></i>Ulangi Uji Analisis
+                    </button>
+                    <button onclick="switchTab('bedah')" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition-all">
+                        Kembali ke Bedah Teks
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ==================== MODAL INFORMASI GURU & CP/TP ==================== -->
+    <div id="infoModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-5 relative animate-fade-in">
+            <button onclick="toggleModal('infoModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-slate-900 text-lg">Informasi Perangkat Ajar</h3>
+                    <p class="text-xs text-slate-500">Bahasa Indonesia • Kelas X SMA (Fase E)</p>
+                </div>
+            </div>
+
+            <div class="space-y-3 text-sm text-slate-600 border-t border-b border-slate-100 py-4">
+                <div>
+                    <strong class="text-slate-900 block">Capaian Pembelajaran (Elemen Membaca & Memirsa):</strong>
+                    Peserta didik mampu mengevaluasi informasi berupa gagasan, pikiran, pandangan, arahan atau pesan dari berbagai jenis teks (deskripsi, laporan, narasi, rekon, eksplanasi, eksposisi dan diskusi) untuk menemukan makna yang tersurat dan tersirat.
+                </div>
+                <div>
+                    <strong class="text-slate-900 block">Tujuan Pembelajaran:</strong>
+                    Menganalisis kaidah kebahasaan teks anekdot (kalimat langsung/tidak langsung, keterangan waktu lampau, konjungsi kronologis, kata kerja aksi, kalimat retoris, dan kalimat seru/perintah) secara kritis.
+                </div>
+                <div>
+                    <strong class="text-slate-900 block">Petunjuk Penggunaan di Kelas:</strong>
+                    Guru dapat memproyeksikan modul ini sebagai media pembelajaran klasikal atau membagikan tautan/file kepada siswa untuk eksplorasi mandiri berbasis perangkat (HP/Laptop).
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <button onclick="toggleModal('infoModal')" class="px-5 py-2.5 bg-brand-600 text-white font-semibold rounded-xl text-sm hover:bg-brand-700 transition-colors">
+                    Mengerti, Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <p>© 2026 Media Pembelajaran Interaktif Bahasa Indonesia Kelas X SMA.</p>
+            <p class="flex items-center gap-1.5">
+                <span>Dirancang untuk mendukung Pembelajaran Berdiferensiasi & Interaktif</span>
+                <i class="fa-solid fa-heart text-rose-500"></i>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT LOGIC & DATA ==================== -->
+    <script>
+        // 1. DATA KAIDAH KEBAHASAAN TEKS ANEKDOT
+        const kaidahData = [
+            {
+                id: 'retoris',
+                title: 'Kalimat Retoris',
+                icon: 'fa-circle-question',
+                color: 'rose',
+                badgeClass: 'bg-rose-100 text-rose-800 border-rose-300',
+                highlightClass: 'bg-rose-100 hover:bg-rose-200 text-rose-900 border-b-2 border-rose-500',
+                desc: 'Kalimat pertanyaan yang tidak memerlukan jawaban karena jawabannya sudah diketahui secara umum oleh penanya maupun pendengar.',
+                purpose: 'Menyindir atau menegaskan suatu kebenaran secara halus tanpa terkesan menggurui.',
+                example: '"Apakah Bapak tidak malu mengenakan baju tahanan sambil tersenyum di depan kamera?"'
+            },
+            {
+                id: 'lampau',
+                title: 'Keterangan Waktu Lampau',
+                icon: 'fa-clock-rotate-left',
+                color: 'amber',
+                badgeClass: 'bg-amber-100 text-amber-800 border-amber-300',
+                highlightClass: 'bg-amber-100 hover:bg-amber-200 text-amber-900 border-b-2 border-amber-500',
+                desc: 'Frasa atau kata yang menunjukkan bahwa peristiwa dalam cerita anekdot telah terjadi di masa lalu.',
+                purpose: 'Membangun latar waktu peristiwa nyata atau fiktif yang diceritakan kembali.',
+                example: 'Pada suatu hari, kemarin sore, bulan lalu, suatu ketika, pada zaman dahulu.'
+            },
+            {
+                id: 'konjungsi',
+                title: 'Konjungsi Kronologis',
+                icon: 'fa-timeline',
+                color: 'emerald',
+                badgeClass: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+                highlightClass: 'bg-emerald-100 hover:bg-emerald-200 text-emerald-900 border-b-2 border-emerald-500',
+                desc: 'Kata penghubung yang menyatakan urutan waktu kejadian atau hubungan sebab-akibat antarperistiwa.',
+                purpose: 'Menjaga alur cerita tetap runtut dari bagian orientasi, krisis, hingga reaksi.',
+                example: 'Lalu, kemudian, setelah itu, akhirnya, selanjutnya, ketika.'
+            },
+            {
+                id: 'aksi',
+                title: 'Kata Kerja Aksi (Material)',
+                icon: 'fa-person-running',
+                color: 'blue',
+                badgeClass: 'bg-blue-100 text-blue-800 border-blue-300',
+                highlightClass: 'bg-blue-100 hover:bg-blue-200 text-blue-900 border-b-2 border-blue-500',
+                desc: 'Kata kerja yang menggambarkan tindakan fisik atau aktivitas nyata yang dilakukan oleh tokoh dalam cerita.',
+                purpose: 'Menghidupkan adegan dan memperjelas perilaku tokoh yang dikritik.',
+                example: 'Berjalan, menoleh, membentak, tertawa, menulis, melambaikan tangan.'
+            },
+            {
+                id: 'langsung',
+                title: 'Kalimat Langsung & Tidak Langsung',
+                icon: 'fa-comments',
+                color: 'purple',
+                badgeClass: 'bg-purple-100 text-purple-800 border-purple-300',
+                highlightClass: 'bg-purple-100 hover:bg-purple-200 text-purple-900 border-b-2 border-purple-500',
+                desc: 'Kalimat langsung menirukan ucapan tokoh persis aslinya (bertanda petik), sedangkan kalimat tidak langsung melaporkannya kembali.',
+                purpose: 'Menghadirkan dialog yang hidup dan memicu kelucuan (punchline) pada bagian krisis.',
+                example: '"Saya tidak takut!" ujar pejabat itu. / Pejabat itu mengatakan bahwa ia tidak takut.'
+            },
+            {
+                id: 'seru',
+                title: 'Kalimat Seru / Perintah',
+                icon: 'fa-exclamation',
+                color: 'indigo',
+                badgeClass: 'bg-indigo-100 text-indigo-800 border-indigo-300',
+                highlightClass: 'bg-indigo-100 hover:bg-indigo-200 text-indigo-900 border-b-2 border-indigo-500',
+                desc: 'Kalimat yang menyatakan rasa kagum, heran, emosi, atau perintah yang ditandai dengan intonasi seru (!).',
+                purpose: 'Menegaskan ekspresi keterkejutan atau reaksi tokoh terhadap kejadian konyol.',
+                example: '"Wah, luar biasa sekali prestasi Bapak!", "Cepat tanda tangani berkas ini!"'
+            }
+        ];
+
+        // 2. DATA TEKS ANEKDOT UNTUK BEDAH INTERAKTIF
+        const anekdotTexts = [
+            {
+                title: "Baju Tahanan KPK",
+                paragraphs: [
+                    [
+                        { text: "Pada suatu pagi yang cerah", kaidah: "lampau", explanation: "Frasa 'Pada suatu pagi yang cerah' merupakan keterangan waktu lampau yang menandai dimulainya latar cerita anekdot.", func: "Memperkenalkan latar waktu peristiwa (Bagian Abstraksi/Orientasi)." },
+                        { text: ", dua orang kader partai politik, yaitu Danu dan Zaki, sedang duduk santai sambil ", kaidah: null },
+                        { text: "membaca koran", kaidah: "aksi", explanation: "Kata 'membaca' adalah kata kerja aksi (material) yang menunjukkan aktivitas fisik yang sedang dilakukan tokoh.", func: "Menggambarkan situasi awal tokoh sebelum konflik muncul." },
+                        { text: " di teras kantor." , kaidah: null }
+                    ],
+                    [
+                        { text: "\"Zaki, coba lihat berita di halaman utama ini!\" seru Danu sambil ", kaidah: "seru", explanation: "Kalimat ini menggunakan tanda seru (!) untuk mengekspresikan keterkejutan sekaligus ajakan tokoh Danu.", func: "Menarik perhatian lawan bicara menuju inti persoalan." },
+                        { text: "menunjuk foto seorang pejabat", kaidah: "aksi", explanation: "Kata 'menunjuk' merupakan kata kerja aksi yang memperlihatkan gerak fisik tokoh.", func: "Memperjelas gestur tokoh dalam dialog." },
+                        { text: " yang baru saja ditangkap.", kaidah: null }
+                    ],
+                    [
+                        { text: "Zaki ", kaidah: null },
+                        { text: "kemudian", kaidah: "konjungsi", explanation: "Kata 'kemudian' merupakan konjungsi kronologis yang menghubungkan tindakan Danu dengan respons Zaki secara berurutan.", func: "Menjaga urutan kronologi peristiwa dalam alur cerita." },
+                        { text: " mendekat dan mengamati foto tersebut. ", kaidah: null },
+                        { text: "\"Lho, bukankah dia sudah ditetapkan sebagai tersangka korupsi? Mengapa dia masih bisa tersenyum lebar dan melambaikan tangan seperti artis terkenal?\"", kaidah: "retoris", explanation: "Pertanyaan 'Mengapa dia masih bisa tersenyum lebar...?' adalah kalimat retoris karena Zaki sebenarnya tidak membutuhkan jawaban ilmiah, melainkan sedang menyindir perilaku koruptor yang tidak tahu malu.", func: "Menyampaikan kritik sosial secara tajam namun humoris (Bagian Krisis)." }
+                    ],
+                    [
+                        { text: "Danu menghela napas panjang, ", kaidah: null },
+                        { text: "lalu", kaidah: "konjungsi", explanation: "Kata 'lalu' adalah konjungsi temporal/kronologis yang menandai kelanjutan reaksi tokoh.", func: "Menghubungkan bagian krisis menuju reaksi/punchline." },
+                        { text: " menjawab dengan nada datar, ", kaidah: null },
+                        { text: "\"Ah, kamu seperti tidak tahu saja, Ki. Dia itu bangga karena akhirnya berhasil memakai baju oranye yang sangat mahal harganya—miliaran rupiah!\"", kaidah: "langsung", explanation: "Kalimat langsung yang ditandai tanda petik (\"...\") ini memuat pernyataan ironis sebagai puncak kelucuan (punchline).", func: "Memberikan efek humor sekaligus sindiran keras terhadap pelaku korupsi (Bagian Reaksi)." }
+                    ]
+                ]
+            },
+            {
+                title: "Dosen yang Juga Pejabat",
+                paragraphs: [
+                    [
+                        { text: "Suatu ketika", kaidah: "lampau", explanation: "Frasa 'Suatu ketika' menunjukkan keterangan waktu lampau yang tidak spesifik, ciri khas cerita rekaan atau anekdot.", func: "Membuka cerita dengan latar waktu masa lalu." },
+                        { text: ", di kantin sebuah universitas, dua orang mahasiswa bernama Rina dan Bima sedang ", kaidah: null },
+                        { text: "berbincang-bincang", kaidah: "aksi", explanation: "Kata 'berbincang-bincang' menunjukkan aktivitas tindakan komunikasi antar-tokoh.", func: "Membangun interaksi awal antar-tokoh." },
+                        { text: " sambil menunggu jadwal kuliah.", kaidah: null }
+                    ],
+                    [
+                        { text: "Rina bertanya dengan heran, ", kaidah: null },
+                        { text: "\"Bim, saya heran dengan dosen ilmu politik kita. Kalau mengajar, beliau selalu duduk terus dan tidak pernah mau berdiri.\"", kaidah: "langsung", explanation: "Kalimat langsung yang merepresentasikan ucapan tokoh Rina secara utuh.", func: "Memunculkan teka-teki atau keanehan yang menjadi pemicu krisis." }
+                    ],
+                    [
+                        { text: "Bima ", kaidah: null },
+                        { text: "terkekeh", kaidah: "aksi", explanation: "Kata 'terkekeh' adalah kata kerja aksi/perilaku yang menggambarkan reaksi fisik Bima.", func: "Menunjukkan bahwa Bima mengetahui sesuatu yang lucu di balik fenomena tersebut." },
+                        { text: " mendengar pertanyaan Rina. ", kaidah: null },
+                        { text: "\"Ya ampun, Rin! Masa begitu saja kamu tidak paham?\"", kaidah: "seru", explanation: "Ungkapan 'Ya ampun, Rin!' merupakan kalimat seru yang mengekspresikan keheranan bercampur canda.", func: "Membangun ketegangan humor sebelum jawaban inti diberikan." }
+                    ],
+                    [
+                        { text: "Setelah itu", kaidah: "konjungsi", explanation: "Frasa 'Setelah itu' merupakan konjungsi kronologis yang menandai urutan waktu berikutnya.", func: "Mengantarkan pembaca pada bagian akhir cerita (Reaksi/Koda)." },
+                        { text: ", Bima melanjutkan penjelasannya, ", kaidah: null },
+                        { text: "\"Beliau itu kan juga seorang pejabat. Kalau beliau berdiri, takutnya kursinya langsung direbut orang lain!\"", kaidah: "langsung", explanation: "Kalimat langsung ini mengandung makna kias ('kursi' = jabatan) yang menjadi puncak sindiran politik.", func: "Menyampaikan kritik terhadap pejabat yang takut kehilangan jabatan." },
+                        { text: " Bukankah jabatan di negeri ini memang selalu diperebutkan?", kaidah: "retoris", explanation: "Kalimat tanya di akhir paragraf ini bersifat retoris karena jawabannya sudah dipahami bersama oleh pembaca sebagai realitas sosial.", func: "Menutup teks dengan perenungan kritis bagi pembaca (Koda)." }
+                    ]
+                ]
+            }
+        ];
+
+        // 3. DATA SOAL KUIS (UJI ANALISIS)
+        const quizQuestions = [
+            {
+                topic: "Kalimat Retoris",
+                stimulus: "Seorang warga bertanya kepada petugas kebersihan yang sedang mogok kerja: \"Pak, kalau sampah-sampah ini dibiarkan menumpuk sampai setinggi gunung, apakah Bapak pikir bau busuknya akan berubah menjadi parfum Paris?\"",
+                question: "Berdasarkan analisis kaidah kebahasaan, kalimat yang diucapkan warga tersebut termasuk kalimat retoris karena...",
+                options: [
+                    "Membutuhkan jawaban ilmiah dari petugas kebersihan mengenai proses pembusukan sampah.",
+                    "Tidak memerlukan jawaban karena jawabannya sudah pasti tidak, dan bertujuan menyindir kondisi sampah yang menumpuk.",
+                    "Merupakan kalimat perintah halus agar petugas segera membersihkan sampah di jalan.",
+                    "Menunjukkan urutan waktu terjadinya peristiwa penumpukan sampah di kota."
+                ],
+                correct: 1,
+                explanation: "Tepat sekali! Kalimat retoris adalah pertanyaan yang tidak membutuhkan jawaban karena jawabannya sudah diketahui bersama. Pertanyaan tersebut berfungsi menyindir secara humoris."
+            },
+            {
+                topic: "Konjungsi Kronologis",
+                stimulus: "Pencuri itu menyelinap masuk ke rumah pejabat. (1) Kemudian, ia membuka brankas besi di ruang kerja. (2) Namun, ia terkejut karena brankas itu kosong. (3) Akhirnya, pencuri itu malah meninggalkan uang seratus ribu rupiah di meja sambil menulis pesan belasungkawa.",
+                question: "Kata penghubung yang berfungsi menyatakan hubungan urutan waktu (konjungsi kronologis) pada kutipan anekdot di atas ditunjukkan oleh kata...",
+                options: [
+                    "Namun dan karena",
+                    "Sambil dan di",
+                    "Kemudian dan akhirnya",
+                    "Ia dan itu"
+                ],
+                correct: 2,
+                explanation: "Benar! Kata 'kemudian' dan 'akhirnya' merupakan konjungsi kronologis (temporal) yang mengurutkan kejadian dari awal hingga akhir cerita."
+            },
+            {
+                topic: "Kata Kerja Aksi (Material)",
+                stimulus: "Hakim mengetukkan palu sidang dengan keras, lalu menatap terdakwa yang justru menguap lebar di kursi pesakitan.",
+                question: "Manakah kelompok kata yang seluruhnya merupakan kata kerja aksi (material) dalam kalimat di atas?",
+                options: [
+                    "Mengetukkan, menatap, menguap",
+                    "Hakim, palu, terdakwa",
+                    "Keras, lebar, pesakitan",
+                    "Dengan, lalu, yang"
+                ],
+                correct: 0,
+                explanation: "Sangat tepat! 'Mengetukkan', 'menatap', dan 'menguap' adalah kata kerja aksi karena menggambarkan tindakan fisik yang tampak dilakukan oleh tokoh."
+            },
+            {
+                topic: "Keterangan Waktu Lampau",
+                stimulus: "Pada zaman dahulu, hiduplah seorang raja yang sangat gemar mengoleksi pakaian mewah hingga melupakan nasib rakyatnya yang kelaparan.",
+                question: "Fungsi frasa 'Pada zaman dahulu' dalam struktur dan kaidah kebahasaan teks anekdot di atas adalah...",
+                options: [
+                    "Menyatakan sindiran langsung kepada raja yang zalim.",
+                    "Menunjukkan keterangan waktu lampau sebagai pembuka latar peristiwa cerita.",
+                    "Menghubungkan sebab dan akibat dari kemiskinan rakyat.",
+                    "Menegaskan perintah raja kepada para penjahit istana."
+                ],
+                correct: 1,
+                explanation: "Betul! Frasa 'Pada zaman dahulu' merupakan keterangan waktu lampau yang lazim digunakan pada bagian abstraksi/orientasi untuk memulai kisah."
+            },
+            {
+                topic: "Analisis Fungsi Kebahasaan",
+                stimulus: "Dokter: \"Bapak sakit apa?\" | Pasien: \"Saya sakit kantong kering, Dok. Setiap tanggal tua penyakit ini selalu kambuh parah!\"",
+                question: "Penggunaan kalimat langsung berbentuk dialog pada kutipan anekdot tersebut bertujuan untuk...",
+                options: [
+                    "Memberikan informasi medis tentang cara mengobati penyakit kronis.",
+                    "Menghidupkan suasana cerita dan membangun kelucuan (punchline) melalui permainan makna kata.",
+                    "Menjelaskan latar waktu kapan pasien pergi berobat ke rumah sakit.",
+                    "Mengurutkan langkah-langkah pemeriksaan pasien di ruang praktik dokter."
+                ],
+                correct: 1,
+                explanation: "Luar biasa! Kalimat langsung dalam dialog anekdot berfungsi menghidupkan interaksi tokoh sekaligus menjadi wadah munculnya kelucuan (punchline) berupa sindiran kondisi ekonomi."
+            }
+        ];
+
+        // ==================== STATE MANAGEMENT ====================
+        let currentTab = 'materi';
+        let currentAnekdotIdx = 0;
+        let activeFilter = 'all';
+        let clickedHighlights = new Set();
+        
+        // Quiz State
+        let currentQuestionIdx = 0;
+        let quizScore = 0;
+        let correctAnswersCount = 0;
+        let hasAnsweredCurrent = false;
+
+        // ==================== INITIALIZATION ====================
+        window.onload = function() {
+            renderKaidahCards();
+            renderLegendFilters();
+            loadAnekdot(0);
+            renderQuizQuestion();
+            updateProgress(33, "Pelajari 6 kaidah kebahasaan terlebih dahulu.");
+        };
+
+        // ==================== NAVIGATION & TABS ====================
+        function switchTab(tabName) {
+            currentTab = tabName;
+            
+            // Hide all sections
+            document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('hidden'));
+            // Show selected section
+            document.getElementById(`section-${tabName}`).classList.remove('hidden');
+
+            // Update Desktop Nav Styles
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-brand-700', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+            const activeDesktopBtn = document.getElementById(`nav-${tabName}`);
+            if(activeDesktopBtn) {
+                activeDesktopBtn.classList.add('bg-white', 'text-brand-700', 'shadow-sm');
+                activeDesktopBtn.classList.remove('text-slate-600');
+            }
+
+            // Update Mobile Nav Styles
+            document.querySelectorAll('.mob-nav-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-50', 'text-brand-700');
+                btn.classList.add('text-slate-600');
+            });
+            const activeMobBtn = document.getElementById(`mob-nav-${tabName}`);
+            if(activeMobBtn) {
+                activeMobBtn.classList.add('bg-brand-50', 'text-brand-700');
+                activeMobBtn.classList.remove('text-slate-600');
+            }
+
+            // Update Progress Bar
+            if (tabName === 'materi') {
+                updateProgress(33, "Tahap 1/3: Memahami konsep 6 kaidah kebahasaan.");
+            } else if (tabName === 'bedah') {
+                updateProgress(66, "Tahap 2/3: Menganalisis penerapan kaidah dalam teks.");
+            } else if (tabName === 'kuis') {
+                updateProgress(100, "Tahap 3/3: Evaluasi mandiri kemampuan analisis.");
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateProgress(percent, hint) {
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+            document.getElementById('progress-text').innerText = `${percent}%`;
+            document.getElementById('progress-hint').innerText = hint;
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+
+        // ==================== TAB 1: RENDER KAIDAH CARDS ====================
+        function renderKaidahCards() {
+            const grid = document.getElementById('kaidah-grid');
+            grid.innerHTML = kaidahData.map((item, idx) => `
+                <div onclick="toggleCardDetail(${idx})" class="cursor-pointer bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-slate-200 transition-all duration-200 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-11 h-11 rounded-xl ${item.badgeClass} border flex items-center justify-center text-lg">
+                                <i class="fa-solid ${item.icon}"></i>
+                            </span>
+                            <span class="text-xs font-bold text-slate-400 group-hover:text-brand-600 transition-colors">
+                                Kaidah #${idx + 1}
+                            </span>
+                        </div>
+                        <h4 class="font-heading font-bold text-slate-900 text-lg mb-2 group-hover:text-brand-700 transition-colors">
+                            ${item.title}
+                        </h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            ${item.desc}
+                        </p>
+                    </div>
+                    
+                    <div class="pt-3 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs font-semibold text-brand-600">
+                            <span>Lihat Contoh & Fungsi</span>
+                            <i id="card-chevron-${idx}" class="fa-solid fa-chevron-down transition-transform duration-200"></i>
+                        </div>
+                        <div id="card-detail-${idx}" class="hidden mt-3 space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                            <div>
+                                <span class="font-bold text-slate-700 block">Contoh:</span>
+                                <span class="italic text-slate-600">${item.example}</span>
+                            </div>
+                            <div>
+                                <span class="font-bold text-slate-700 block">Fungsi:</span>
+                                <span class="text-slate-600">${item.purpose}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCardDetail(idx) {
+            const detail = document.getElementById(`card-detail-${idx}`);
+            const chevron = document.getElementById(`card-chevron-${idx}`);
+            detail.classList.toggle('hidden');
+            chevron.classList.toggle('rotate-180');
+        }
+
+        // ==================== TAB 2: BEDAH TEKS INTERAKTIF ====================
+        function renderLegendFilters() {
+            const container = document.getElementById('legend-filters');
+            let html = `
+                <button onclick="setFilter('all')" id="filter-all" class="filter-chip px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-white transition-all">
+                    Semua Kaidah
+                </button>
+            `;
+            kaidahData.forEach(k => {
+                html += `
+                    <button onclick="setFilter('${k.id}')" id="filter-${k.id}" class="filter-chip px-3 py-1.5 rounded-lg text-xs font-semibold border ${k.badgeClass} opacity-80 hover:opacity-100 transition-all">
+                        <i class="fa-solid ${k.icon} mr-1"></i>${k.title}
+                    </button>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function setFilter(kaidahId) {
+            activeFilter = kaidahId;
+            
+            // Update chip visual states
+            document.querySelectorAll('.filter-chip').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-offset-1', 'ring-slate-800', 'opacity-100');
+                if(btn.id !== 'filter-all') btn.classList.add('opacity-75');
+            });
+
+            const activeBtn = document.getElementById(`filter-${kaidahId}`);
+            if(activeBtn) {
+                activeBtn.classList.add('ring-2', 'ring-offset-1', 'ring-slate-800', 'opacity-100');
+                activeBtn.classList.remove('opacity-75');
+            }
+
+            // Re-render current text with filter applied
+            renderAnekdotBody();
+        }
+
+        function loadAnekdot(index) {
+            currentAnekdotIdx = index;
+            clickedHighlights.clear();
+
+            // Update selector buttons
+            document.querySelectorAll('.teks-selector').forEach((btn, idx) => {
+                if (idx === index) {
+                    btn.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
+                    btn.classList.remove('bg-slate-100', 'text-slate-700');
+                } else {
+                    btn.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
+                    btn.classList.add('bg-slate-100', 'text-slate-700');
+                }
+            });
+
+            // Reset analysis panel
+            document.getElementById('analysis-placeholder').classList.remove('hidden');
+            document.getElementById('analysis-content').classList.add('hidden');
+
+            const data = anekdotTexts[index];
+            document.getElementById('anekdot-title').innerText = data.title;
+            renderAnekdotBody();
+        }
+
+        function renderAnekdotBody() {
+            const data = anekdotTexts[currentAnekdotIdx];
+            const bodyContainer = document.getElementById('anekdot-body');
+            let totalInteractiveSegments = 0;
+
+            const html = data.paragraphs.map((paragraph, pIdx) => {
+                const spans = paragraph.map((segment, sIdx) => {
+                    if (!segment.kaidah) {
+                        return `<span>${segment.text}</span>`;
+                    }
+
+                    const segmentId = `${currentAnekdotIdx}-${pIdx}-${sIdx}`;
+                    const kaidahInfo = kaidahData.find(k => k.id === segment.kaidah);
+                    const isVisibleByFilter = (activeFilter === 'all' || activeFilter === segment.kaidah);
+                    
+                    if (isVisibleByFilter) totalInteractiveSegments++;
+
+                    const styleClass = isVisibleByFilter 
+                        ? `${kaidahInfo.highlightClass} px-1.5 py-0.5 rounded cursor-pointer font-medium transition-all inline`
+                        : `text-slate-700`;
+
+                    const clickAttr = isVisibleByFilter 
+                        ? `onclick="inspectSegment('${segmentId}', ${pIdx}, ${sIdx})"` 
+                        : ``;
+
+                    return `<span id="seg-${segmentId}" ${clickAttr} class="anekdot-seg ${styleClass}">${segment.text}</span>`;
+                }).join('');
+
+                return `<p class="indent-6">${spans}</p>`;
+            }).join('');
+
+            bodyContainer.innerHTML = html;
+            updateExploredCounter(totalInteractiveSegments);
+        }
+
+        function inspectSegment(segmentId, pIdx, sIdx) {
+            const segment = anekdotTexts[currentAnekdotIdx].paragraphs[pIdx][sIdx];
+            const kaidahInfo = kaidahData.find(k => k.id === segment.kaidah);
+
+            // Track clicked segment
+            clickedHighlights.add(segmentId);
+            
+            // Highlight active segment ring
+            document.querySelectorAll('.anekdot-seg').forEach(el => {
+                el.classList.remove('ring-2', 'ring-slate-900', 'shadow-sm');
+            });
+            const activeEl = document.getElementById(`seg-${segmentId}`);
+            if(activeEl) {
+                activeEl.classList.add('ring-2', 'ring-slate-900', 'shadow-sm');
+            }
+
+            // Populate Right Analysis Panel
+            document.getElementById('analysis-placeholder').classList.add('hidden');
+            const contentBox = document.getElementById('analysis-content');
+            contentBox.classList.remove('hidden');
+
+            const badge = document.getElementById('analysis-badge');
+            badge.className = `px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border ${kaidahInfo.badgeClass}`;
+            badge.innerHTML = `<i class="fa-solid ${kaidahInfo.icon} mr-1.5"></i>${kaidahInfo.title}`;
+
+            document.getElementById('analysis-quote').innerText = `"${segment.text.trim()}"`;
+            document.getElementById('analysis-explanation').innerText = segment.explanation;
+            document.getElementById('analysis-function').innerText = segment.func;
+
+            // Update counter
+            const totalVisible = document.querySelectorAll('.anekdot-seg[onclick]').length;
+            updateExploredCounter(totalVisible);
+        }
+
+        function updateExploredCounter(total) {
+            document.getElementById('explored-count').innerText = `${clickedHighlights.size} / ${total} diklik`;
+        }
+
+        // ==================== TAB 3: UJI ANALISIS (KUIS) ====================
+        function renderQuizQuestion() {
+            hasAnsweredCurrent = false;
+            const q = quizQuestions[currentQuestionIdx];
+
+            document.getElementById('question-number').innerText = `Soal ${currentQuestionIdx + 1} dari ${quizQuestions.length}`;
+            document.getElementById('question-topic').innerText = `Topik: ${q.topic}`;
+            document.getElementById('question-stimulus').innerText = q.stimulus;
+            document.getElementById('question-text').innerText = q.question;
+
+            // Hide feedback and next button
+            document.getElementById('feedback-box').classList.add('hidden');
+            document.getElementById('next-question-btn').classList.add('hidden');
+
+            // Render options
+            const optionsContainer = document.getElementById('options-container');
+            const letters = ['A', 'B', 'C', 'D'];
+            optionsContainer.innerHTML = q.options.map((opt, idx) => `
+                <button onclick="selectAnswer(${idx})" id="opt-btn-${idx}" class="w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-brand-500 hover:bg-brand-50/50 transition-all flex items-start gap-3.5 group">
+                    <span class="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-brand-600 group-hover:text-white text-slate-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+                        ${letters[idx]}
+                    </span>
+                    <span class="text-sm sm:text-base text-slate-700 font-medium">${opt}</span>
+                </button>
+            `).join('');
+        }
+
+        function selectAnswer(selectedIdx) {
+            if (hasAnsweredCurrent) return;
+            hasAnsweredCurrent = true;
+
+            const q = quizQuestions[currentQuestionIdx];
+            const isCorrect = (selectedIdx === q.correct);
+            const feedbackBox = document.getElementById('feedback-box');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackDesc = document.getElementById('feedback-desc');
+
+            // Disable all option buttons and style them
+            q.options.forEach((_, idx) => {
+                const btn = document.getElementById(`opt-btn-${idx}`);
+                btn.disabled = true;
+                btn.classList.remove('hover:border-brand-500', 'hover:bg-brand-50/50');
+
+                if (idx === q.correct) {
+                    btn.classList.remove('border-slate-200');
+                    btn.classList.add('border-emerald-500', 'bg-emerald-50');
+                } else if (idx === selectedIdx && !isCorrect) {
+                    btn.classList.remove('border-slate-200');
+                    btn.classList.add('border-rose-500', 'bg-rose-50');
+                } else {
+                    btn.classList.add('opacity-50');
+                }
+            });
+
+            if (isCorrect) {
+                quizScore += 20;
+                correctAnswersCount++;
+                document.getElementById('quiz-score-badge').innerText = quizScore;
+
+                feedbackBox.className = "rounded-xl p-4 border bg-emerald-50 border-emerald-200 text-sm space-y-1 block";
+                feedbackTitle.className = "font-bold text-emerald-800 flex items-center gap-2";
+                feedbackTitle.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600"></i> Analisis Kamu Tepat!`;
+            } else {
+                feedbackBox.className = "rounded-xl p-4 border bg-rose-50 border-rose-200 text-sm space-y-1 block";
+                feedbackTitle.className = "font-bold text-rose-800 flex items-center gap-2";
+                feedbackTitle.innerHTML = `<i class="fa-solid fa-circle-xmark text-rose-600"></i> Kurang Tepat, Mari Cermati Pembahasannya:`;
+            }
+
+            feedbackDesc.innerText = q.explanation;
+
+            // Show Next Button
+            const nextBtn = document.getElementById('next-question-btn');
+            nextBtn.classList.remove('hidden');
+            if (currentQuestionIdx === quizQuestions.length - 1) {
+                nextBtn.innerHTML = `<span>Lihat Hasil Akhir</span><i class="fa-solid fa-trophy"></i>`;
+            } else {
+                nextBtn.innerHTML = `<span>Soal Berikutnya</span><i class="fa-solid fa-arrow-right"></i>`;
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIdx < quizQuestions.length - 1) {
+                currentQuestionIdx++;
+                renderQuizQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            const resultBox = document.getElementById('quiz-result');
+            resultBox.classList.remove('hidden');
+
+            document.getElementById('final-score').innerText = quizScore;
+            document.getElementById('final-correct').innerText = `${correctAnswersCount} dari ${quizQuestions.length} soal benar`;
+
+            const iconBox = document.getElementById('result-icon');
+            const msgBox = document.getElementById('result-message');
+
+            if (quizScore >= 80) {
+                iconBox.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl bg-emerald-100 text-emerald-600";
+                iconBox.innerHTML = `<i class="fa-solid fa-award"></i>`;
+                msgBox.innerText = "Luar biasa! Kamu telah menguasai analisis kaidah kebahasaan teks anekdot dengan sangat baik.";
+            } else if (quizScore >= 60) {
+                iconBox.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl bg-amber-100 text-amber-600";
+                iconBox.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`;
+                msgBox.innerText = "Cukup baik! Kamu sudah memahami sebagian besar kaidah kebahasaan, namun perlu lebih teliti pada beberapa bagian.";
+            } else {
+                iconBox.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl bg-rose-100 text-rose-600";
+                iconBox.innerHTML = `<i class="fa-solid fa-book-open"></i>`;
+                msgBox.innerText = "Jangan menyerah! Silakan pelajari kembali materi dan fitur Bedah Teks Interaktif sebelum mengulang kuis.";
+            }
+        }
+
+        function resetQuiz() {
+            currentQuestionIdx = 0;
+            quizScore = 0;
+            correctAnswersCount = 0;
+            document.getElementById('quiz-score-badge').innerText = "0";
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            renderQuizQuestion();
+        }
+    </script>
+</body>
+</html>
